@@ -1,13 +1,6 @@
-# Project Name
+# Product-API
 
-> Project description
-
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+> Returns a JSON object of product information.
 
 ## Table of Contents
 
