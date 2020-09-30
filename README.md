@@ -1,1 +1,1 @@
-# price-api
+# product-api
