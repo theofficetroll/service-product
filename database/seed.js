@@ -1,7 +1,7 @@
+const mongoose = require('mongoose');
+var db = require('../database/connection.js');
 var Product = require('./model.js');
 var generator = require('./generator.js');
-var db = require('../database/connection.js');
-const mongoose = require('mongoose');
 
 let products = Array(10).fill().map((_, i) => {
   const product = new Product({

@@ -30,9 +30,6 @@ module.exports = {
   getOptions: (n) => {
     let options = ['Member Select', 'Sustainable Material', ''];
     return options[Math.floor(Math.random() * options.length)];
-    // let arr = Array(3).fill().map((_, i) => {
-    //   arr[i] = options[Math.floor(Math.random() * options.length)];
-    // })
   }
 };
 
