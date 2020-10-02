@@ -12,10 +12,13 @@ module.exports = {
     })
   },
   drop: (callback) => {
+    console.log('drop!');
     Product.db.dropCollection('products', (err, res) => {
       if (err) {
+        console.log('Product.db.dropCollection ERROR');
         callback(err);
       } else {
+        console.log('good')
         callback(null, res);
       }
     })
