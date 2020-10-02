@@ -26,7 +26,6 @@ module.exports = {
     return categories[Math.floor(Math.random() * categories.length)];
   },
 
-
   getOptions: (n) => {
     let options = ['Member Select', 'Sustainable Material', ''];
     return options[Math.floor(Math.random() * options.length)];

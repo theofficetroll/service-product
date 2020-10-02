@@ -1,28 +1,26 @@
 var express = require('express');
-var parser = require('body-parser');
 var db = require('../database/connection.js');
-var seeder = require('../database/seed.js');
 
+// midddleware
+var morgan = require('morgan');
+var parser = require('body-parser');
+
+// router
+var router = require('./routes.js');
+
+// run express server
 var app = express();
 
-app.use(express.static(__dirname + '/../client/dist'));
+// logging & parsing
+app.use(morgan('dev'));
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
+// serve client files
+app.use(express.static(__dirname + '/../client/dist'));
+app.use('/', router);
 
-app.get('/product', function (req, res) {
-  res.send('ok');
-});
-
-app.get('/product/create', function (req, res) {
-  res.send('ok');
-});
-
-app.get('/product/teardown', function (req, res) {
-  res.send('ok');
-});
-
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+app.listen(3008, function() {
+  console.log('listening on port 3008!');
 });
 
