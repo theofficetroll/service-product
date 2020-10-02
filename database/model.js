@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const productSchema = Schema({
   productId: {
-    type: String
+    type: Number
   },
   name: {
     type: String
@@ -23,5 +23,5 @@ const productSchema = Schema({
   ]
 });
 
-const product = mongoose.model('product', productSchema, 'Product');
-module.exports = product;
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;

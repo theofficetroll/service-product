@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/ultimate-nike', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost/ultimate-nike', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('connected to database...');
   })
@@ -10,4 +10,5 @@ mongoose.connect('mongodb://localhost/ultimate-nike', {useNewUrlParser: true})
 const db = mongoose.connection;
 
 module.exports = db;
+
 
