@@ -1,0 +1,4 @@
+GET products/initialize
+Example: http://localhost:3008/products/initialize
+
+Response Body: 'Created'

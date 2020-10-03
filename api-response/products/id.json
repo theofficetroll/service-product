@@ -1,0 +1,33 @@
+GET product/:id
+
+Example: http://localhost:3008/product/4
+
+Response Body:
+{
+  "_id": "5f78dabc87d3e2b49b537810",
+  "productId": 4,
+  "name": "Arakna Zen",
+  "gender": "male",
+  "category": "Everyday",
+  "styles": [
+      {
+          "_id": "5f78dabc87d3e2b49b537811",
+          "styleId": "001",
+          "price": "168",
+          "options": "Member Select"
+      },
+      {
+          "_id": "5f78dabc87d3e2b49b537812",
+          "styleId": "002",
+          "price": "145",
+          "options": ""
+      },
+      {
+          "_id": "5f78dabc87d3e2b49b537813",
+          "styleId": "003",
+          "price": "377",
+          "options": "Sustainable Material"
+      }
+  ],
+  "__v": 0
+}

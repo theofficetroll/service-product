@@ -1,0 +1,4 @@
+GET /products/clear
+Example: http://localhost:3008/products/clear
+
+Response Body: 'OK'
