@@ -5,17 +5,24 @@
   "author": "Anabell Chiu-Carag",
   "license": "MIT",
   "main": "index.js",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js --trace-deprecation",
+    "test": "jest ./database/__test__/repository.test.js --detectOpenHandles"
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "body-parser": "^1.19.0",
+    "eslint": "^7.10.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.7",
+    "morgan": "^1.10.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "jest": "^26.4.2"
   },
   "repository": {
     "type": "git",
