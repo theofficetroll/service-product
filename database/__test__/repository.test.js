@@ -36,7 +36,7 @@ describe('product repository', () => {
   });
 
   test('/products returns an array of products ', done => {
-    products.all((err, data) => {
+    products.all(1, (err, data) => {
       if (err) {
         console.log('=====', err.codeName);
         done();

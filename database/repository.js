@@ -2,14 +2,17 @@ var seed = require('./helpers/seed.js');
 var Product = require('./model.js');
 
 module.exports = {
-  all: (callback) => {
-    Product.find({}, (err, res) => {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, res);
-      }
-    })
+  all: (limit, callback) => {
+    Product
+      .find({})
+      .limit(parseInt(limit))
+      .exec((err, res) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, res);
+        }
+      })
   },
   seed: (callback) => {
     seed((err, data) => {

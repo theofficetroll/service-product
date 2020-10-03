@@ -3,7 +3,7 @@ var products = require('../database/repository.js');
 module.exports = {
   product: {
     all: (req, res) => {
-      products.all((err, data) => {
+      products.all(req.params.limit, (err, data) => {
         if (err) {
           res.sendStatus(500);
         } else {
