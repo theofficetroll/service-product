@@ -2,8 +2,8 @@ var products = require('../database/repository.js');
 
 module.exports = {
   product: {
-    get: (req, res) => {
-      products.get((err, data) => {
+    all: (req, res) => {
+      products.all((err, data) => {
         if (err) {
           res.sendStatus(500);
         } else {
