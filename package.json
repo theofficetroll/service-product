@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js --trace-deprecation",
-    "test": "jest ./database/__test__/repository.test.js"
+    "test": "jest ./database/__test__/repository.test.js --detectOpenHandles"
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",

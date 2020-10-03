@@ -1,27 +1,38 @@
+var mongoose = require('mongoose');
 var db = require('../connection.js');
 var products = require('../repository.js');
 
+describe('product repository', () => {
 
-test('query db', (done) => {
-  let any = () => {
-    try {
-      products.drop((err, data) => {
-        if (err) {
-          console.log('line 38', err);
-        } else {
-          console.log(data);
-          done();
-        }
-       });
-    } catch (err) {
-      console.log('line 45', err);
-      done();
-    }
-  };
-  any();
-});
+  test('connects to db', done => {
+    expect(db).toBeTruthy();
+    done();
+  });
 
-test('adds 1 =2  to equal 3', () => {
-  let x = 1 + 2;
-  expect(x).toBe(3);
+  test('drops db', done => {
+    products.drop((err, data) => {
+      if (err) {
+        console.log('=====', err.codeName);
+        expect(err.codeName).toBe('NamespaceNotFound');
+        done();
+      } else {
+        expect(data).toBe(true);
+        console.log(data);
+        done();
+      }
+    });
+  });
+
+  test('seeds db', done => {
+    products.seed((err, data) => {
+      if (err) {
+        console.log('=====', err.codeName);
+        done();
+      } else {
+        expect(data).toBeTruthy();
+        done();
+      }
+    });
+  });
+
 });
