@@ -5,10 +5,8 @@ module.exports = {
   all: (callback) => {
     Product.find({}, (err, res) => {
       if (err) {
-        console.log(err);
         callback(err);
       } else {
-        console.log('good')
         callback(null, res);
       }
     })
@@ -26,10 +24,8 @@ module.exports = {
     console.log('drop!');
     Product.db.dropCollection('products', (err, res) => {
       if (err) {
-        console.log('Product.db.dropCollection ERROR');
         callback(err);
       } else {
-        console.log('good')
         callback(null, res);
       }
     })

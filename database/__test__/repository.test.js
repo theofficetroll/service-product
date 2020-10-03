@@ -35,4 +35,16 @@ describe('product repository', () => {
     });
   });
 
+  test('/products returns an array of products ', done => {
+    products.all((err, data) => {
+      if (err) {
+        console.log('=====', err.codeName);
+        done();
+      } else {
+        expect(data).toBeInstanceOf(Array);
+        done();
+      }
+    });
+  });
+
 });
