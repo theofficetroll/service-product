@@ -17,7 +17,7 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
 // serve client files
-app.use(express.static(__dirname + '/../client/dist'));
+// app.use('/home', express.static(__dirname + './../client/dist'));
 app.use('/', router);
 
 app.listen(3008, function() {
