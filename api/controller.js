@@ -2,8 +2,17 @@ var products = require('../database/repository.js');
 
 module.exports = {
   product: {
-    get: (req, res) => {
-      products.get((err, data) => {
+    details: (req, res) => {
+      products.find(req.params.id, (err, data) => {
+        if (err) {
+          res.sendStatus(500);
+        } else {
+          res.json(data);
+        }
+      })
+    },
+    all: (req, res) => {
+      products.all(req.params.limit, (err, data) => {
         if (err) {
           res.sendStatus(500);
         } else {
