@@ -1,0 +1,146 @@
+GET /products/all/:limit
+Example: http://localhost:3008/products/all/5
+
+Response Body:
+[
+    {
+        "_id": "5f78d62fa45bdfaf5524b72b",
+        "productId": 100,
+        "name": "3000 GTX",
+        "gender": "male",
+        "category": "Trail Running",
+        "styles": [
+            {
+                "_id": "5f78d62fa45bdfaf5524b72c",
+                "styleId": "001",
+                "price": "0",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b72d",
+                "styleId": "002",
+                "price": "0",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b72e",
+                "styleId": "003",
+                "price": "0",
+                "options": ""
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "5f78d62fa45bdfaf5524b72f",
+        "productId": 1,
+        "name": "GenMax NDA",
+        "gender": "female",
+        "category": "Mountain Climbing",
+        "styles": [
+            {
+                "_id": "5f78d62fa45bdfaf5524b730",
+                "styleId": "001",
+                "price": "683",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b731",
+                "styleId": "002",
+                "price": "254",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b732",
+                "styleId": "003",
+                "price": "537",
+                "options": "Sustainable Material"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "5f78d62fa45bdfaf5524b733",
+        "productId": 2,
+        "name": "Zoom Columbus",
+        "gender": "male",
+        "category": "Mountain Climbing",
+        "styles": [
+            {
+                "_id": "5f78d62fa45bdfaf5524b734",
+                "styleId": "001",
+                "price": "79",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b735",
+                "styleId": "002",
+                "price": "1",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b736",
+                "styleId": "003",
+                "price": "175",
+                "options": "Sustainable Material"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "5f78d62fa45bdfaf5524b737",
+        "productId": 3,
+        "name": "Groove Ultimate",
+        "gender": "female",
+        "category": "Everyday",
+        "styles": [
+            {
+                "_id": "5f78d62fa45bdfaf5524b738",
+                "styleId": "001",
+                "price": "23",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b739",
+                "styleId": "002",
+                "price": "191",
+                "options": "Member Select"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b73a",
+                "styleId": "003",
+                "price": "52",
+                "options": "Member Select"
+            }
+        ],
+        "__v": 0
+    },
+    {
+        "_id": "5f78d62fa45bdfaf5524b73b",
+        "productId": 4,
+        "name": "Arakna Zen",
+        "gender": "male",
+        "category": "Trail Running",
+        "styles": [
+            {
+                "_id": "5f78d62fa45bdfaf5524b73c",
+                "styleId": "001",
+                "price": "73",
+                "options": "Sustainable Material"
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b73d",
+                "styleId": "002",
+                "price": "57",
+                "options": ""
+            },
+            {
+                "_id": "5f78d62fa45bdfaf5524b73e",
+                "styleId": "003",
+                "price": "55",
+                "options": ""
+            }
+        ],
+        "__v": 0
+    }
+]
