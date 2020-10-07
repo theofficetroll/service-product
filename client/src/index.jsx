@@ -25,29 +25,25 @@ class App extends React.Component {
   componentDidMount() {
     console.log('fetching...');
     $.ajax({
-      url: '/products/all/1',
-      success: (data) => {
-        console.log('server', data);
-        let d = data[0];
-        this.setState({
-          productId: d.productId,
-          name: d.name,
-          gender: d.gender === 'male' ? 'Men\'s' : 'Women\'s',
-          category: d.category,
-          style: d.styles[0],
-          styles: d.styles,
-        });
-        console.log('state', this.state);
-      },
-      error: (err) => {
-        console.error(err, err.stack);
-      }
+      url: '/products/all/1'
+    }).done((data) => {
+      console.log('server', data);
+      let d = data[0];
+      this.setState({
+        productId: d.productId,
+        name: d.name,
+        gender: d.gender === 'male' ? 'Men\'s' : 'Women\'s',
+        category: d.category,
+        style: d.styles[0],
+        styles: d.styles,
+      });
+      console.log('state', this.state);
     });
   }
 
   render() {
     return (
-      <div class="product_need_to_know">
+      <div className="product_need_to_know">
         <GenderCategory gender = {this.state.gender} category = {this.state.category} />
         <Price style = {this.state.style} />
         <Name name = {this.state.name} />
