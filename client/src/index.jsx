@@ -7,6 +7,9 @@ import Name from './components/Name.jsx';
 import Price from './components/Price.jsx';
 import Styles from './components/Styles.jsx';
 
+const ProductNeedToKnow = styled.div`
+  display: flex;
+`;
 
 class App extends React.Component {
 
@@ -43,12 +46,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="product_need_to_know">
+      <ProductNeedToKnow>
         <GenderCategory gender = {this.state.gender} category = {this.state.category} />
         <Price style = {this.state.style} />
         <Name name = {this.state.name} />
         <Styles styles = {this.state.styles} />
-      </div>
+      </ProductNeedToKnow>
     );
   }
 }

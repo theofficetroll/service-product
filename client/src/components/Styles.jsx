@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import Style from './Style.jsx';
 
 const Styles = styled.h2`
-  display: flex;
-  justify-content: flex-end;
+  /* display: flex;
+  justify-content: flex-end; */
   font-color: red;
+  background-color: lavender;
 `;
 
 export default ({ styles }) => {
