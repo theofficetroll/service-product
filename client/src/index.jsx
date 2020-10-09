@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import styled from 'styled-components';
-import GenderCategory from './components/GenderCategory.jsx';
-import Name from './components/Name.jsx';
-import Price from './components/Price.jsx';
+import NameGenderCategoryPrice from './components/NameGenderCategoryPrice.jsx';
 import Styles from './components/Styles.jsx';
 
 const ProductNeedToKnow = styled.div`
   display: flex;
+  flex-flow: column;
 `;
 
 class App extends React.Component {
@@ -45,11 +44,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <ProductNeedToKnow>
-        <GenderCategory gender = {this.state.gender} category = {this.state.category} />
-        <Price style = {this.state.style} />
-        <Name name = {this.state.name} />
+        <NameGenderCategoryPrice name = {this.state.name} gender= {this.state.gender} category = {this.state.category} price = {this.state.style.price} />
         <Styles styles = {this.state.styles} />
       </ProductNeedToKnow>
     );

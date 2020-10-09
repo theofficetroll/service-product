@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Style from './Style.jsx';
 
-const Styles = styled.h2`
-  /* display: flex;
-  justify-content: flex-end; */
+const Styles = styled.div`
+  display: flex;
+  justify-content: flex-start;
   font-color: red;
   background-color: lavender;
 `;

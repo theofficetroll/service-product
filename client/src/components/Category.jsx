@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Price = styled.h2`
+const Category = styled.div`
+  flex: 1 1 auto;
   background-color: mediumslateblue;
 `;
-export default ({ price }) => {
+export default ({ category }) => {
   return (
-    <Price>$ {price}</Price>
+    <Category>{category}</Category>
   );
 };

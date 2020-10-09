@@ -1,33 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import Gender from './Gender.jsx';
+import Category from './Category.jsx';
 
-const HeadlineLarge = styled.div`
-  /* display: flex;
-  justify-content: flex-start; */
+const GenderCategory = styled.div`
+  display: flex;
+  flex-flow: row;
+  font-family: Helvetica;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  Color: #000000;
   background-Color: pink;
 `;
 
-const Gender = styled.h2`
-  font-family: Helvetica;
-  font-size: 15px;
-  text-transform: capitalize;
-  Color: #000000;
-  background-Color: yellow;
-`;
-
-const Category = styled.h2`
-  font-family: Helvetica;
-  font-size: 15px;
-  text-transform: capitalize;
-  Color: #000000;
-  background-Color: lime;
-`;
-
-export default ({gender, category}) => {
+export default ({ gender, category }) => {
+  console.log(gender, category);
   return (
-    <HeadlineLarge>
-      <Gender>{gender}</Gender>
-      <Category>{category}</Category>
-    </HeadlineLarge>
+    <GenderCategory>
+      <Gender gender={gender} />
+      <Category category={category} />
+    </GenderCategory>
   );
 };

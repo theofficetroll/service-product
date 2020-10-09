@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// const Styles = styled.h2`
-//   display: flex;
-//   justify-content: flex-start;
-// `;
+const Style = styled.img`
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+`;
 
-let Style = function({ style }) {
+export default ({ style }) => {
+  console.log(style);
   return (
-    <div>
-      {style.styleId}
-      {style.options}
-    </div>
+    <Style src="https://images-dynamic-arcteryx.imgix.net/F20/55x70/Norvan-SL-Shoe-W-Ultralush-Devine.png?auto=format" />
   );
 };
-
-export default Style;
