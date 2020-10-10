@@ -15,7 +15,7 @@ module.exports = {
         include: SRC_DIR,
         loader: 'babel-loader',
         query: {
-          presets: [ '@babel/preset-react', '@babel/preset-env' ]
+          presets: [ '@babel/preset-react', '@babel/preset-env', '@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-nullish-coalescing-operator']
         }
       }
     ]

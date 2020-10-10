@@ -1,4 +1,5 @@
 var products = require('../database/repository.js');
+var path = require('path');
 
 module.exports = {
   product: {
@@ -9,7 +10,7 @@ module.exports = {
         } else {
           res.json(data);
         }
-      })
+      });
     },
     all: (req, res) => {
       products.all(req.params.limit, (err, data) => {
@@ -18,7 +19,7 @@ module.exports = {
         } else {
           res.json(data);
         }
-      })
+      });
     },
     initialize: (req, res) => {
       products.seed((err, data) => {
@@ -27,7 +28,7 @@ module.exports = {
         } else {
           res.sendStatus(201);
         }
-      })
+      });
     },
     clear: (req, res) => {
       console.log('clear');
@@ -37,7 +38,7 @@ module.exports = {
         } else {
           res.sendStatus(200);
         }
-      })
+      });
     },
   }
-}
+};
