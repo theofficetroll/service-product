@@ -9,16 +9,15 @@ const GenderCategory = styled.div`
   font-family: Helvetica;
   font-size: 1.5em;
   text-transform: capitalize;
-  Color: #000000;
-  background-Color: pink;
+  Color: rgb(27, 17, 17);
+  /* background-Color: pink; */
 `;
 
 export default ({ gender, category }) => {
   console.log(gender, category);
   return (
     <GenderCategory>
-      <Gender gender={gender} />
-      <Category category={category} />
+      {gender} {category}
     </GenderCategory>
   );
 };

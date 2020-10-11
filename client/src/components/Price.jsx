@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Price = styled.h3`
   font-family: Helvetica;
   font-size: 1.5em;
-  Color: #000000;
+  Color: rgb(27, 17, 17);
 
-  background-color: mediumslateblue;
+  /* background-color: mediumslateblue; */
 `;
 export default ({ price }) => {
   return (

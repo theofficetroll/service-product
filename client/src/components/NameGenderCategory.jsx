@@ -7,7 +7,7 @@ import GenderCategory from './GenderCategory.jsx';
 const NameGenderCategory = styled.div`
   display: flex;
   flex-flow: column;
-  background-Color: beige;
+  /* background-Color: beige; */
 `;
 
 export default ({ name, gender, category }) => {

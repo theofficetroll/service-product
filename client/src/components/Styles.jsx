@@ -6,7 +6,7 @@ const Styles = styled.div`
   display: flex;
   justify-content: flex-start;
   font-color: red;
-  background-color: lavender;
+  /* background-color: lavender;4 */
 `;
 
 export default ({ styles }) => {

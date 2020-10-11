@@ -7,7 +7,7 @@ const NameGenderCategoryPrice = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  background-Color: azure;
+  /* background-Color: azure; */
 `;
 
 export default ({ name, gender, category, price }) => {
