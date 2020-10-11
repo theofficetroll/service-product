@@ -6,7 +6,6 @@ const Style = styled.img`
   height: 120px;
   margin: 5px;
   border: 1px;
-  /* padding: 20px */
   background-color: gainsboro;
   &:hover {
     border: 1px solid black;

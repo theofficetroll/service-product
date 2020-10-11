@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import NameGenderCategory from './NameGenderCategory.jsx';
+import Name from './Name.jsx';
 import Price from './Price.jsx';
 
-const NameGenderCategoryPrice = styled.div`
+const Product = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -13,9 +13,9 @@ const NameGenderCategoryPrice = styled.div`
 export default ({ name, gender, category, price }) => {
 
   return (
-    <NameGenderCategoryPrice>
-      <NameGenderCategory name={name} gender={gender} category={category} />
+    <Product>
+      <Name name={name} gender={gender} category={category} />
       <Price price={price} />
-    </NameGenderCategoryPrice>
+    </Product>
   );
 };
