@@ -9,7 +9,8 @@ const Style = styled.img`
 
 export default ({ style }) => {
   console.log(style);
+  const imageUrl = `${style.imageThumbnail}?auto=format`;
   return (
-    <Style src="https://images-dynamic-arcteryx.imgix.net/F20/55x70/Norvan-SL-Shoe-W-Ultralush-Devine.png?auto=format" />
+    <Style src={imageUrl} />
   );
 };
