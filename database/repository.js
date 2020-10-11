@@ -9,7 +9,7 @@ module.exports = {
         if (err) {
           callback(err);
         } else {
-          callback(null, res.length === 1 ? res[0] : {});
+          callback(null, res.length >= 1 ? res[0] : {});
         }
       });
   },

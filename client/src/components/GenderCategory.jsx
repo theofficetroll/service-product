@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Gender from './Gender.jsx';
-import Category from './Category.jsx';
 
 const GenderCategory = styled.div`
   display: flex;
