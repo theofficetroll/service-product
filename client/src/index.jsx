@@ -26,46 +26,39 @@ class App extends React.Component {
     };
   }
 
-  setThumbnails(photos) {
-    let test = this.state.styles.map(style => {
-      // console.log('state style', style);
+  setThumbnails(styles, photos) {
+    let stylesUpdated = [];
+    styles.map(style => {
       photos.map(photo => {
-        // console.log('photo style', photo);
         if (photo.style_id === style.styleId) {
-          // console.log(photo.style_id, style.styleId);
-          test = style;
-          test['imageThumbnail'] = photo.main_photo.thumbnail_url;
-          test['imageRegular'] = photo.main_photo.regular_url;
+          style['imageThumbnail'] = photo.main_photo.thumbnail_url;
+          style['imageRegular'] = photo.main_photo.regular_url;
+          stylesUpdated.push(style);
         }
       });
     });
-    this.setState({
-      styles: test
-    });
+    return stylesUpdated;
   }
 
   componentDidMount() {
     $.ajax({
       url: `http://localhost:3008/product/${this.state.productId}`
-    }).done((d) => {
-      console.log('product received', d);
-      this.setState({
-        productId: d.productId,
-        name: d.name,
-        gender: d.gender === 'male' ? 'Men\'s' : 'Women\'s',
-        category: d.category,
-        style: d.styles.filter(s => this.state.styleId === s.styleId),
-        styles: d.styles,
-      // console.log('state', this.state);
-      }, () => {
-        $.ajax({
-          url: `http://localhost:3000/photos/${this.state.productId}`
-        }).done((photos) => {
-          this.setThumbnails(photos);
+    }).done((data) => {
+      $.ajax({
+        url: `http://localhost:3000/photos/${this.state.productId}`
+      }).done((photos) => {
+        let stylesUpdated = this.setThumbnails(data.styles, photos);
+        console.log('with thumbnails', stylesUpdated);
+        this.setState({
+          productId: data.productId,
+          name: data.name,
+          gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
+          category: data.category,
+          style: stylesUpdated.filter(s => this.state.styleId === s.styleId),
+          styles: stylesUpdated
         });
       });
     });
-    console.log('====componentDidMount state', this.state);
   }
 
   render() {

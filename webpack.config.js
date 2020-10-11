@@ -13,12 +13,15 @@ module.exports = {
       {
         test: /\.jsx?/,
         include: SRC_DIR,
-        loader: 'babel-loader',
-        query: {
-          presets: [ '@babel/preset-react', '@babel/preset-env', '@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-nullish-coalescing-operator']
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-react', '@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-nullish-coalescing-operator', '@babel/plugin-proposal-optional-chaining']
+          }
         }
       }
     ]
-  }
-
+  },
 };
