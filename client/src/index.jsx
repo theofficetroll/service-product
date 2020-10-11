@@ -54,7 +54,7 @@ class App extends React.Component {
           name: data.name,
           gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
           category: data.category,
-          style: stylesUpdated.filter(s => this.state.styleId === s.styleId),
+          style: stylesUpdated.filter(s => this.state.styleId === s.styleId)[0],
           styles: stylesUpdated
         });
       });

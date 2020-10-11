@@ -13,8 +13,8 @@ const NameGenderCategory = styled.div`
 export default ({ name, gender, category }) => {
   return (
     <NameGenderCategory>
-      <Name name={name}/>
       <GenderCategory gender={gender} category={category} />
+      <Name name={name}/>
     </NameGenderCategory>
   );
 };
