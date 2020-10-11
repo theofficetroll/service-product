@@ -23,7 +23,7 @@ module.exports = {
         } else {
           callback(null, res);
         }
-      })
+      });
   },
   seed: (callback) => {
     seed((err, data) => {
@@ -32,7 +32,7 @@ module.exports = {
       } else {
         callback(null, data);
       }
-    })
+    });
   },
   drop: (callback) => {
     console.log('drop!');
@@ -42,6 +42,6 @@ module.exports = {
       } else {
         callback(null, res);
       }
-    })
+    });
   }
 };
