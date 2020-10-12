@@ -9,7 +9,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start-react": "webpack -d --watch",
+    "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --trace-deprecation",
     "test": "jest ./database/__test__/repository.test.js --detectOpenHandles",
     "seed": "node ./database/helpers/seedDb.js",

@@ -10,7 +10,7 @@ const ProductInfo = styled.div`
   flex-flow: column;
 `;
 
-class App extends React.Component {
+class ProductApp extends React.Component {
 
   constructor(props) {
     const ids = window.location.pathname.split('/');
@@ -72,4 +72,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<ProductApp />, document.getElementById('app'));
