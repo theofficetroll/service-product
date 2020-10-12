@@ -35,7 +35,6 @@ module.exports = {
     });
   },
   drop: (callback) => {
-    console.log('drop!');
     Product.db.dropCollection('products', (err, res) => {
       if (err) {
         callback(err);

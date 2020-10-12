@@ -12,7 +12,8 @@
     "start-react": "webpack -d --watch",
     "start": "nodemon server/index.js --trace-deprecation",
     "test": "jest ./database/__test__/repository.test.js --detectOpenHandles",
-    "seed-db": "node ./database/helpers/seedDb.js"
+    "seed": "node ./database/helpers/seedDb.js",
+    "drop": "node ./database/helpers/dropDb.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
