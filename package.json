@@ -5,13 +5,10 @@
   "author": "Anabell Chiu-Carag",
   "license": "MIT",
   "main": "index.js",
-  "jest": {
-    "testEnvironment": "node"
-  },
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --trace-deprecation",
-    "test": "jest ./database/__test__/repository.test.js --detectOpenHandles",
+    "test": "jest ./database/__test__ ./client/src/__test__ --detectOpenHandles",
     "seed": "node ./database/helpers/seedDb.js",
     "drop": "node ./database/helpers/dropDb.js"
   },
@@ -42,8 +39,12 @@
     "@babel/plugin-syntax-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.5.2",
     "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest-enzyme": "^7.1.2",
     "webpack": "^2.2.1"
   }
 }
