@@ -9,7 +9,7 @@ module.exports = {
         if (err) {
           callback(err);
         } else {
-          callback(null, res.length === 1 ? res[0] : {});
+          callback(null, res.length >= 1 ? res[0] : {});
         }
       });
   },
@@ -23,7 +23,7 @@ module.exports = {
         } else {
           callback(null, res);
         }
-      })
+      });
   },
   seed: (callback) => {
     seed((err, data) => {
@@ -32,16 +32,15 @@ module.exports = {
       } else {
         callback(null, data);
       }
-    })
+    });
   },
   drop: (callback) => {
-    console.log('drop!');
     Product.db.dropCollection('products', (err, res) => {
       if (err) {
         callback(err);
       } else {
         callback(null, res);
       }
-    })
+    });
   }
 };

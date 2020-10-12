@@ -4,7 +4,7 @@ var generator = require('./generator.js');
 
 const seed = (callback) => {
   let products = [];
-  Array(10).fill().map((_, i) => {
+  Array(100).fill().map((_, i) => {
     products.push({
       productId: i === 0 ? 100 : i,
       name: generator.getName(i),
@@ -28,7 +28,7 @@ const seed = (callback) => {
           options: generator.getOptions(i)
         }]
     });
-  })
+  });
 
   Product.insertMany(products, (err, docs) => {
     if (err) {
@@ -36,7 +36,7 @@ const seed = (callback) => {
     } else {
       callback(null, docs);
     }
-  })
+  });
 };
 
 
