@@ -8,7 +8,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --trace-deprecation",
-    "test": "jest ./database/__test__ ./client/src/__test__ --detectOpenHandles",
+    "test": "jest ./database/__test__ ./client/src/__test__ --detectOpenHandles --watch --coverage",
     "seed": "node ./database/helpers/seedDb.js",
     "drop": "node ./database/helpers/dropDb.js"
   },
