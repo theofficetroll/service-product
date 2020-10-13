@@ -10,6 +10,6 @@ const Price = styled.h3`
 `;
 export default ({ price }) => {
   return (
-    <Price>$ {price}</Price>
+    <Price>$ {price === '0' ? '' : price}</Price>
   );
 };

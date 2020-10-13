@@ -13,8 +13,8 @@ const Style = styled.img`
 `;
 
 export default ({ style }) => {
-  console.log(style);
-  const imageUrl = `${style.imageThumbnail}?auto=format`;
+  const { imageThumbnail } = style;
+  const imageUrl = `${imageThumbnail}?auto=format`;
   return (
     <Style src={imageUrl} />
   );
