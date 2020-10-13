@@ -10,7 +10,8 @@ const Product = styled.div`
   /* background-Color: azure; */
 `;
 
-export default ({ name, gender, category, price }) => {
+export default ({ details }) => {
+  const { name, gender, category, price } = details;
   return (
     <Product>
       <Name name={name} gender={gender} category={category} />
