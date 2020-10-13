@@ -18,9 +18,12 @@ class ProductModule extends React.Component {
     this.state = {
       productId: ids[2],
       styleId: ids[3],
-      name: '',
-      gender: '',
-      category: '',
+      details: {
+        name: '',
+        gender: '',
+        category: '',
+        price: ''
+      },
       style: {},
       styles: [],
     };
@@ -48,13 +51,16 @@ class ProductModule extends React.Component {
         url: `http://localhost:3000/photos/${this.state.productId}`
       }).done((photos) => {
         let stylesUpdated = this.setThumbnails(data.styles, photos);
-        console.log('with thumbnails', stylesUpdated);
+        let currentStyle = stylesUpdated.filter(s => '00' + this.state.styleId === s.styleId)[0];
         this.setState({
           productId: data.productId,
-          name: data.name,
-          gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
-          category: data.category,
-          style: stylesUpdated.filter(s => this.state.styleId === s.styleId)[0],
+          details: {
+            name: data.name,
+            gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
+            category: data.category,
+            price: currentStyle.price,
+          },
+          style: currentStyle,
           styles: stylesUpdated
         });
       });
@@ -65,7 +71,7 @@ class ProductModule extends React.Component {
     console.log('====render state', this.state);
     return (
       <ProductInfo>
-        <Product name = {this.state.name} gender= {this.state.gender} category = {this.state.category} price = {this.state.style.price} />
+        <Product details={this.state.details} />
         <Styles styles = {this.state.styles} />
       </ProductInfo>
     );
