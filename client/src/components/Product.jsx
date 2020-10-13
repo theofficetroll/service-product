@@ -11,7 +11,6 @@ const Product = styled.div`
 `;
 
 export default ({ name, gender, category, price }) => {
-
   return (
     <Product>
       <Name name={name} gender={gender} category={category} />
