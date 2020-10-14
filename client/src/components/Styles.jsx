@@ -10,7 +10,7 @@ const Styles = styled.div`
 `;
 
 export default ({ styles }) => {
-  console.log(styles);
+  // console.log(styles);
   return (
     <Styles>
       {
