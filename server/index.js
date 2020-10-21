@@ -28,7 +28,7 @@ app.use('/', express.static(__dirname + './../client/dist'));
 app.use('/shop/:productId/:styleId', express.static(__dirname + './../client/dist'));
 app.use('/', router);
 
-app.listen(3008, function() {
+app.listen(80, function() {
   console.log('listening on port 3008!');
 });
 
