@@ -45,7 +45,7 @@ class ProductModule extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: `http://localhost:3008/product/${this.state.productId}`
+      url: `18.221.153.78:3008/product/${this.state.productId}`
     }).done((data) => {
       $.ajax({
         url: `http://localhost:3000/photos/${this.state.productId}`
