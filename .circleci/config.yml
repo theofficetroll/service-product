@@ -15,7 +15,7 @@ jobs:
             # Change to your server's URL or public IP
             EC2_PUBLIC_DNS=18.221.153.78
             echo 'using SSH to connect to EC2'
-            ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "cd product-service; git pull; npm i; pm2 restart product-service"
+            ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "cd product-service; git pull; npm i; cd server; pm2 restart index.js"
             echo 'disconnected from SSH'
 workflows:
   deploy:
