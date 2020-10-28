@@ -7,8 +7,8 @@ jobs:
       enabled: true
     steps:
       - run:
-        name: AWS EC2 deploy
-        command: |
+          name: AWS EC2 deploy
+          command: |
             # - SSH to the server to deploy
             # Change to your username
             EC2_USERNAME=ec2-user
