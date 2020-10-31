@@ -1,8 +1,28 @@
 const path = require('path');
+const { env } = require('process');
 const SRC_DIR = path.join(__dirname, './client/src');
 const DEST_DIR = path.join(__dirname, './client/dist');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+let envKeys = null;
+let variables = () => {
+  const env = dotenv.config().parsed;
+
+  envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
+
+};
+variables();
+console.log('***', process.env.API_URL);
+console.log(envKeys);
 
 module.exports = {
+  node: {
+    fs: 'empty'
+  },
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DEST_DIR,
@@ -24,4 +44,8 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin(envKeys),
+  ]
+
 };

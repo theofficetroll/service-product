@@ -45,10 +45,10 @@ class ProductModule extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: `http://3.128.76.194:3008/product/${this.state.productId}`
+      url: `${process.env.PRODUCT_API}/${this.state.productId}`
     }).done((data) => {
       $.ajax({
-        url: `http://localhost:3000/photos/${this.state.productId}`
+        url: `${process.env.PHOTO_API}/${this.state.productId}`
       }).done((photos) => {
         let stylesUpdated = this.setThumbnails(data.styles, photos);
         let currentStyle = stylesUpdated.filter(s => '00' + this.state.styleId === s.styleId)[0];
@@ -109,7 +109,7 @@ class ProductModule extends React.Component {
   }
 
   render() {
-    console.log('====render state', this.state);
+    console.log(this.state);
     return (
       <ProductInfo>
         <Product details={this.state.details} />

@@ -17,6 +17,7 @@
     "babel": "^6.23.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "eslint": "^7.10.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
@@ -25,6 +26,7 @@
     "morgan": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scripts": "^4.0.0",
     "styled-components": "^5.2.0"
   },
   "repository": {
@@ -45,6 +47,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.5.3",
     "jest-enzyme": "^7.1.2",
-    "webpack": "^2.2.1"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.1.0"
   }
 }
