@@ -16,7 +16,6 @@ let variables = () => {
 
 };
 variables();
-console.log('***', process.env.API_URL);
 console.log(envKeys);
 
 module.exports = {
