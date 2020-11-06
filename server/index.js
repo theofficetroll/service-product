@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression');
 var db = require('../database/connection.js');
 
 // midddleware
@@ -12,11 +13,21 @@ var router = require('./routes.js');
 // run express server
 var app = express();
 
+// compress responses
+const shouldCompress = (req, res) => {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses with this request header
+    return false;
+  }
+  // fallback to standard filter function
+  return compression.filter(req, res);
+};
+app.use(compression({ filter: shouldCompress, threshold: 0}));
+
 // enable CORS
 app.use(cors({
   origin: '*',
 }));
-
 
 // logging & parsing
 app.use(morgan('dev'));
