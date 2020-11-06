@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Product from './components/Product.jsx';
 import Styles from './components/Styles.jsx';
 
+console.log(process.env.PRODUCT_API);
+console.log(process.env.PHOTO_API);
 const ProductInfo = styled.div`
   display: flex;
   flex-flow: column;
