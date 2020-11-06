@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import styled from 'styled-components';
 import Product from './components/Product.jsx';
 import Styles from './components/Styles.jsx';
