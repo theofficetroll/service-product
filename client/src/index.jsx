@@ -29,6 +29,7 @@ class ProductModule extends React.Component {
       style: {},
       styles: [],
     };
+    this.fetchData();
   }
 
   setThumbnails(styles, photos) {
@@ -45,7 +46,7 @@ class ProductModule extends React.Component {
     return stylesUpdated;
   }
 
-  componentDidMount() {
+  fetchData() {
     $.ajax({
       url: `${process.env.PRODUCT_API}/${this.state.productId}`
     }).done((data) => {
@@ -108,6 +109,9 @@ class ProductModule extends React.Component {
         });
       });
     });
+  }
+
+  componentDidMount() {
   }
 
   render() {
