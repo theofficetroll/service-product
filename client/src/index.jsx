@@ -45,6 +45,12 @@ class ProductModule extends React.Component {
     return stylesUpdated;
   }
 
+  handleStyleClick(styleId) {
+    // change url to reflect the new styleId
+    styleId = styleId.replace('00', '');
+    window.location.pathname = `/shop/${this.state.productId}/${styleId}`;
+  }
+
   fetchData() {
     $.ajax({
       url: `${process.env.PRODUCT_API}/${this.state.productId}`
@@ -118,7 +124,7 @@ class ProductModule extends React.Component {
     return (
       <ProductInfo>
         <Product details={this.state.details} />
-        <Styles styles = {this.state.styles} />
+        <Styles styles={this.state.styles} handleStyleClick={this.handleStyleClick.bind(this)}/>
       </ProductInfo>
     );
   }

@@ -12,10 +12,10 @@ const Style = styled.img`
   }
 `;
 
-export default ({ style }) => {
+export default ({ style, handleStyleClick }) => {
   const { imageThumbnail } = style;
   const imageUrl = `${imageThumbnail}?auto=format`;
   return (
-    <Style src={imageUrl} />
+    <Style src={imageUrl} onClick={() => handleStyleClick(style.styleId)}/>
   );
 };
