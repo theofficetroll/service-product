@@ -9,7 +9,7 @@ const Styles = styled.div`
   /* background-color: lavender;4 */
 `;
 
-export default ({ styles }) => {
+export default ({ styles, handleStyleClick }) => {
   // console.log(styles);
   return (
     <Styles>
@@ -18,6 +18,7 @@ export default ({ styles }) => {
           <Style
             key={i}
             style={style}
+            handleStyleClick={handleStyleClick}
           />
         ))
       }
