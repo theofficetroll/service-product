@@ -2,7 +2,7 @@ var express = require('express');
 var compression = require('compression');
 var db = require('../database/connection.js');
 
-// midddleware
+// middleware
 var morgan = require('morgan');
 var parser = require('body-parser');
 const cors = require('cors');

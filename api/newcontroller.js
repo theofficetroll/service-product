@@ -17,15 +17,6 @@ module.exports = {
         }
       });
     },
-    all: (req, res) => {
-      products.all(req.params.limit, (err, data) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.json(data);
-        }
-      });
-    },
     new: (req, res) => {
       products.add(req.params.id, (err, data) => {
         if (err) {
