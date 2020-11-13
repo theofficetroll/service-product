@@ -1,11 +1,5 @@
 module.exports = {
   getPrice: (n) => {
-    if (n === 0) {
-      n = 10;
-    }
-    if (n === 1) {
-      n = 7;
-    }
     let price = Math.ceil(Math.floor(Math.random() * n * 100) / 10) * 10;
     if (price > 1000) {
       price = Math.ceil(price / 100) * 10;

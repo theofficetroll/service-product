@@ -4,26 +4,27 @@ var generator = require('./generator.js');
 
 const seed = (callback) => {
   let products = [];
-  Array(100).fill().map((_, i) => {
+  let limit = 10000000;
+  Array(limit).fill().map((_, i) => {
     products.push({
-      productId: i === 0 ? 100 : i,
+      productId: i === 0 ? limit : i,
       name: generator.getName(i),
       gender: generator.getGender(i),
       category: generator.getCategory(),
       styles: [
         {
-          styleId: '001',
+          styleId: (i === 0 ? limit : i) * 3,
           price: generator.getPrice(i),
           options: generator.getOptions(i)
         },
         {
-          styleId: '002',
+          styleId: (i === 0 ? limit : i) * 3 + 1,
           price: generator.getPrice(i),
           options: generator.getOptions(i)
 
         },
         {
-          styleId: '003',
+          styleId: styleId: (i === 0 ? limit : i) * 3 + 2,
           price: generator.getPrice(i),
           options: generator.getOptions(i)
         }]
