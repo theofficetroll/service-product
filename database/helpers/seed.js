@@ -24,7 +24,7 @@ const seed = (callback) => {
 
         },
         {
-          styleId: styleId: (i === 0 ? limit : i) * 3 + 2,
+          styleId: (i === 0 ? limit : i) * 3 + 2,
           price: generator.getPrice(),
           options: generator.getOptions()
         }]
