@@ -15,18 +15,18 @@ const seed = (callback) => {
         {
           styleId: (i === 0 ? limit : i) * 3,
           price: generator.getPrice(),
-          options: generator.getOptions()
+          options: generator.getOptions(),
         },
         {
           styleId: (i === 0 ? limit : i) * 3 + 1,
           price: generator.getPrice(),
-          options: generator.getOptions()
+          options: generator.getOptions(),
 
         },
         {
           styleId: (i === 0 ? limit : i) * 3 + 2,
           price: generator.getPrice(),
-          options: generator.getOptions()
+          options: generator.getOptions(),
         }]
     });
   });
