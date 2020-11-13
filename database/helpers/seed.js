@@ -8,25 +8,25 @@ const seed = (callback) => {
   Array(limit).fill().map((_, i) => {
     products.push({
       productId: i === 0 ? limit : i,
-      name: generator.getName(i),
-      gender: generator.getGender(i),
+      name: generator.getName(),
+      gender: generator.getGender(),
       category: generator.getCategory(),
       styles: [
         {
           styleId: (i === 0 ? limit : i) * 3,
-          price: generator.getPrice(i),
-          options: generator.getOptions(i)
+          price: generator.getPrice(),
+          options: generator.getOptions()
         },
         {
           styleId: (i === 0 ? limit : i) * 3 + 1,
-          price: generator.getPrice(i),
-          options: generator.getOptions(i)
+          price: generator.getPrice(),
+          options: generator.getOptions()
 
         },
         {
           styleId: styleId: (i === 0 ? limit : i) * 3 + 2,
-          price: generator.getPrice(i),
-          options: generator.getOptions(i)
+          price: generator.getPrice(),
+          options: generator.getOptions()
         }]
     });
   });
@@ -40,6 +40,4 @@ const seed = (callback) => {
   });
 };
 
-
 module.exports = seed;
-
