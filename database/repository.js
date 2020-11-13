@@ -42,5 +42,35 @@ module.exports = {
         callback(null, res);
       }
     });
+  },
+  new: (data, callback) => {
+    Product.db.insert((err, data.params) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, res);
+      }
+    })
+
+  },
+  update: (id, callback) => {
+    Product.findOneAndUpdate({ productId: id })
+    .exec((err, res) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, res);
+      }
+    })
+  },
+  remove: (id, callback) => {
+    Product.deleteOne({ productId: id })
+    .exec((err, res) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, res);
+      }
+    })
   }
 };
