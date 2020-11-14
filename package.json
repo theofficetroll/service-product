@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Product API for Ultimate NIKE",
   "author": "Anabell Chiu-Carag",
+  "secondary author": "Mark Scrudder",
   "license": "MIT",
   "main": "index.js",
   "scripts": {

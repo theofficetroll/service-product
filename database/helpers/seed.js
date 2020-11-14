@@ -4,7 +4,7 @@ var generator = require('./generator.js');
 
 const seed = (callback) => {
   let products = [];
-  let limit = 10000000;
+  let limit = 100;
   Array(limit).fill().map((_, i) => {
     products.push({
       productId: i === 0 ? limit : i,

@@ -44,7 +44,7 @@ module.exports = {
     });
   },
   new: (data, callback) => {
-    Product.db.insert((err, data.params) => {
+    Product.db.insert((err, data) => {
       if (err) {
         callback(err);
       } else {

@@ -13,10 +13,12 @@ module.exports = {
     firstModifierList = ['1', '90', '95', '97', 'High', 'Low', '2', 'Mid', 'Ultimate', 'Advance', '92', 'Renegade', 'Zer0.3', '270', 'Turbo', 'Run', 'Dunk', '36', '', '', '', '', ''];
     secondModifierList = ['Retro', 'SE', 'React', 'Flyknit', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
-    first = firstList[Math.random() * firstList.length];
-    second = secondList[Math.random() * secondList.length];
-    firstModifier = firstModifierList[Math.random() * firstModifierList.length]
-    secondModifier = secondModifierList[Math.random() * secondModifierList.length]
+    first = firstList[Math.floor(Math.random() * firstList.length)];
+    second = secondList[Math.floor(Math.random() * secondList.length)];
+    firstModifier = firstModifierList[Math.floor(Math.random() * firstModifierList.length)];
+    secondModifier = secondModifierList[Math.floor(Math.random() * secondModifierList.length)];
+
+    console.log(first);
 
     name = `Nike ${first} ${second} ${firstModifier} ${secondModifier}`;
     return name;
