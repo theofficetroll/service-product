@@ -10,7 +10,6 @@ const Styles = styled.div`
 `;
 
 export default ({ styles, handleStyleClick }) => {
-  // console.log(styles);
   return (
     <Styles>
       {

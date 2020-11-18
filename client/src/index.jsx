@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import Product from './components/Product.jsx';
 import Styles from './components/Styles.jsx';
 
-console.log(process.env.PRODUCT_API);
-console.log(process.env.PHOTO_API);
+const PRODUCT_API = 'http://localhost:3008/product';
+const PHOTO_API = 'http://localhost:3008/photos';
+
 const ProductInfo = styled.div`
   display: flex;
   flex-flow: column;
@@ -20,10 +21,10 @@ class ProductModule extends React.Component {
       productId: ids[2],
       styleId: ids[3],
       details: {
-        name: '',
-        gender: '',
-        category: '',
-        price: ''
+        name: 'Test',
+        gender: 'male',
+        category: 'Tennis',
+        price: '200'
       },
       style: {},
       styles: [],
@@ -52,75 +53,33 @@ class ProductModule extends React.Component {
   }
 
   fetchData() {
+    let productId = this.state.productId;
     $.ajax({
-      url: `${process.env.PRODUCT_API}/${this.state.productId}`
-    }).done((data) => {
-      $.ajax({
-        url: `${process.env.PHOTO_API}/${this.state.productId}`
-      }).done((photos) => {
-        let stylesUpdated = this.setThumbnails(data.styles, photos);
-        let currentStyle = stylesUpdated.filter(s => '00' + this.state.styleId === s.styleId)[0];
+      method: 'GET',
+      url: `${PRODUCT_API}/${productId}`,
+      datatype: 'json',
+      success: (data) => {
+        let currentStyle = this.state.styleId;
         this.setState({
           productId: data.productId,
           details: {
             name: data.name,
             gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
             category: data.category,
-            price: currentStyle.price,
+            price: 100, // TODO this is a placeholder, it will need to be replaced with the new database. This current model won't work
           },
-          style: currentStyle,
-          styles: stylesUpdated
         });
-      }).fail(() => {
-        console.log('handling failed request');
-        let photos = [
-          {
-            'product_id': 1,
-            'style_id': '001',
-            'main_photo': {
-              'thumbnail_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/thumbnail/1-001.jpg',
-              'regular_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/regular/1-001.jpg'
-            }
-          },
-          {
-            'product_id': 1,
-            'style_id': '002',
-            'main_photo': {
-              'thumbnail_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/thumbnail/1-002.jpg',
-              'regular_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/regular/1-002.jpg'
-            }
-          },
-          {
-            'product_id': 1,
-            'style_id': '003',
-            'main_photo': {
-              'thumbnail_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/thumbnail/1-003.jpg',
-              'regular_url': 'https://ultimate-nike.s3.us-west-1.amazonaws.com/photos/main/regular/1-003.jpg'
-            }
-          }
-        ];
-        let stylesUpdated = this.setThumbnails(data.styles, photos);
-        let currentStyle = stylesUpdated.filter(s => '00' + this.state.styleId === s.styleId)[0];
-        this.setState({
-          productId: data.productId,
-          details: {
-            name: data.name,
-            gender: data.gender === 'male' ? 'Men\'s' : 'Women\'s',
-            category: data.category,
-            price: currentStyle.price,
-          },
-          style: currentStyle,
-          styles: stylesUpdated
-        });
-      });
-    });
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    })
   }
 
   componentDidMount() {
   }
 
   render() {
-    console.log(this.state);
     return (
       <ProductInfo>
         <Product details={this.state.details} />

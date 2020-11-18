@@ -18,8 +18,6 @@ module.exports = {
     firstModifier = firstModifierList[Math.floor(Math.random() * firstModifierList.length)];
     secondModifier = secondModifierList[Math.floor(Math.random() * secondModifierList.length)];
 
-    console.log(first);
-
     name = `Nike ${first} ${second} ${firstModifier} ${secondModifier}`;
     return name;
   },

@@ -8,7 +8,7 @@ var parser = require('body-parser');
 const cors = require('cors');
 
 // router
-var router = require('./routes.js');
+var router = require('./newroutes.js');
 
 // run express server
 var app = express();
