@@ -28,3 +28,6 @@ dist/
 **/.vscode/
 
 .env*
+
+## Added by Mark ##
+config.js
