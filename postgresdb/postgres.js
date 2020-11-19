@@ -1,5 +1,6 @@
 const Pool = require('pg').Pool;
 const user = require('./config.js');
+const generator = require('./../database/helpers/generator.js');
 
 const pool = new Pool (user);
 
@@ -62,10 +63,46 @@ const remove = (req, res) => {
   })
 }
 
+const newTable = (req, res) => {
+  pool.query('CREATE TABLE products (productId int, name varchar, gender varchar, category varchar, styleId int)', (err, data) => {
+    if (err) {
+      throw err;
+    }
+    console.log('Table created successfully');
+  })
+}
+
+// TODO fix styles to generate correctly
+const seed = (req, res) => {
+  const seedData = (callback) => {
+    let products = [];
+    let limit = 10000000;
+    Array(limit).fill().map((_, i) => {
+      products.push({
+        productId: i === 0 ? limit : i,
+        name: generator.getName(),
+        gender: generator.getGender(),
+        category: generator.getCategory(),
+        style: 1, // TODO
+      });
+    });
+  });
+
+  // TODO Add actual query below
+  pool.query('', (err, data) => {
+    if (err) {
+      throw err;
+    }
+    console.log('Table created successfully');
+  })
+}
+
 module.exports = {
-  getAll,
   get,
+  getAll,
   newEntry,
-  update,
+  newTable,
   remove,
+  seed,
+  update,
 }
