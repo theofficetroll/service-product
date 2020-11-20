@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool;
-const user = require('./config.js');
+const products = require('./config.js');
 
-const pool = new Pool (user);
+const pool = new Pool (products);
 
 // for testing only
 const getAll = (req, res) => {
@@ -41,13 +41,13 @@ const newEntry = (req, res) => {
 const update = (req, res) => {
   const { productId, name, gender, category, styleId } = req.body;
 
-  pool.query('UPDATE users SET productId = $1, name = $2, gender = $3, category = $4, styleId = $5 WHERE id = $1',
+  pool.query('UPDATE products SET productId = $1, name = $2, gender = $3, category = $4, styleId = $5 WHERE id = $1',
   [name, email, id],
   (error, results) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`User modified with ID: ${id}`)
+    response.status(200).send(`Product modified with ID: ${id}`)
   })
 }
 
@@ -62,10 +62,20 @@ const remove = (req, res) => {
   })
 }
 
+const newTable = (req, res) => {
+  pool.query('CREATE TABLE products (productId int, name varchar, gender varchar, category varchar, styleId int)', (err, data) => {
+    if (err) {
+      throw err;
+    }
+    console.log('Table created successfully');
+  })
+}
+
 module.exports = {
-  getAll,
   get,
+  getAll,
   newEntry,
-  update,
+  newTable,
   remove,
+  update,
 }
