@@ -62,15 +62,6 @@ const remove = (req, res) => {
   })
 }
 
-const newTable = (req, res) => {
-  pool.query('CREATE TABLE products (productId int, name varchar, gender varchar, category varchar, styleId int)', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    console.log('Table created successfully');
-  })
-}
-
 module.exports = {
   get,
   getAll,

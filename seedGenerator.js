@@ -2,7 +2,6 @@ const generator = require('./database/helpers/generator.js');
 const csvWriter = require('csv-write-stream');
 const writer = csvWriter();
 const fs = require('fs');
-// const db = require('./postgresdb/postgres.js');
 
 const generate = (req, res) => {
   const seedData = (callback) => {
@@ -28,7 +27,6 @@ const generate = (req, res) => {
   seedData();
 }
 
-// db.newTable();
 generate();
 
 module.exports = {
