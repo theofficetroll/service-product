@@ -22,8 +22,9 @@ removes given id from the database
 
 
 # Product-Postgres Database
+In terminal:
+npm run generate
+
+
 In Postgres shell:
-
 \copy products from /path/to/csv/seed.csv delimiter ',' csv header;
-
-\copy products from /home/mark/hackreactor/rpt23/product-service/seed.csv delimiter ',' csv header;
