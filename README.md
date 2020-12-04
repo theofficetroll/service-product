@@ -27,4 +27,4 @@ npm run generate
 
 
 In Postgres shell:
-\copy products from /path/to/csv/seed.csv delimiter ',' csv header;
+\copy products from '/path/to/csv/seed.csv' delimiter ',' csv header;
