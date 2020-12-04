@@ -5,25 +5,30 @@ const fs = require('fs');
 
 const generate = (req, res) => {
   const seedData = (callback) => {
-    let limit = 1000000;
     let i = 0;
+    let limit = 10000000;
+    let document;
 
-    writer.pipe(fs.createWriteStream('seed.csv'));
-    while (i < limit) {
-      for (let j = 0; j < 3; j++) {
-        let style = i * 3 + j;
-        writer.write({
-          productId: i,
+    async function generateFile() {
+      writer.pipe(fs.createWriteStream('seed.csv'));
+      while (i < limit) {
+        document = {
+          id: i,
           name: generator.getName(),
           gender: generator.getGender(),
           category: generator.getCategory(),
-          style: style,
-        })
+          style: 1,
+        }
+        writer.write(document);
+        if (!writer.write(document)) {
+          await new Promise((resolve) => writer.once("drain", resolve));
+        }
+        ++i;
       }
-      i++;
+      writer.end();
     }
-    writer.end();
-  };
+    generateFile();
+  }
   seedData();
 }
 

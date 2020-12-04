@@ -66,7 +66,6 @@ module.exports = {
   get,
   getAll,
   newEntry,
-  newTable,
   remove,
   update,
 }
