@@ -6,6 +6,8 @@ const Pool = require('pg').Pool;
 const products = require('./../postgresdb/config.js');
 const pool = new Pool (products);
 
+require('newrelic');
+
 // middleware
 var morgan = require('morgan');
 var parser = require('body-parser');

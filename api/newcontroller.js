@@ -1,4 +1,4 @@
-var products = require('../database/repository.js');
+var products = require('../postgresdb/postgres.js');
 var path = require('path');
 
 // TODO
@@ -9,7 +9,7 @@ var path = require('path');
 module.exports = {
   product: {
     details: (req, res) => {
-      products.find(req.params.id, (err, data) => {
+      products.get(req.params.id, (err, data) => {
         if (err) {
           res.status(500).send(err);
         } else {
