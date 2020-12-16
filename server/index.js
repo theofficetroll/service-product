@@ -6,6 +6,18 @@ const Pool = require('pg').Pool;
 const products = require('./../postgresdb/config.js');
 const pool = new Pool (products);
 
+// redis
+const redis = require('redis');
+const redisClient = redis.createClient({host : 'localhost', port : 6379});
+redisClient.on('ready', function() {
+  console.log('Redis is ready');
+});
+
+redisClient.on('error', function*() {
+  console.log('Error in Redis');
+})
+
+// new relic
 require('newrelic');
 
 // middleware
@@ -48,12 +60,24 @@ app.use('/shop/:productId/:styleId', express.static(__dirname + './../client/dis
 app.get('/product/:id', async(req, res) => {
   try {
     const { id } = req.params;
-    const data = await pool.query('SELECT * FROM products WHERE productId = $1', [id]);
+    redisClient.get(id, async (err, data) => {
+      if (err) throw err;
 
-    if (!data) {
-      return res.status(400).send('No such product');
-    }
-    res.status(200).send(data.rows[0]);
+      if (data) {
+        res.status(200).send(data);
+      } else {
+        const data = await pool.query('SELECT * FROM products WHERE productId = $1', [id]);
+
+        let output = data.rows[0];
+
+        redisClient.setex(id, 600, JSON.stringify(output));
+
+        if (!data) {
+          return res.status(400).send('No such product');
+        }
+        res.status(200).send(output);
+      }
+    });
   }
   catch(err) {
     console.log(err);

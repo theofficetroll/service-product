@@ -16,4 +16,4 @@ scenarios:
     flow:
       # Get the details of the product:
       - get:
-          url: "/product/{{ $randomNumber(1,9999999) }}/"
+          url: "/product/{{ $randomNumber(1000000,10000000) }}/"
