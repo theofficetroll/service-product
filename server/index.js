@@ -1,6 +1,5 @@
 var express = require('express');
 var compression = require('compression');
-var db = require('../database/connection.js');
 
 const Pool = require('pg').Pool;
 const products = require('./../postgresdb/config.js');
